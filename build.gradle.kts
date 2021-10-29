@@ -13,6 +13,7 @@ repositories {
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("com.graphql-java-kickstart:graphql-java-tools:12.0.0")
+    implementation("ch.qos.logback:logback-classic:1.2.6")
 }
 
 application.mainClass.set("Main")

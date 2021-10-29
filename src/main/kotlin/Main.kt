@@ -10,6 +10,7 @@ interface TestUnion
 
 class TestUnion1(val a: String?) : TestUnion
 class TestUnion2(val b: String?) : TestUnion
+class DummyType(val testUnion: TestUnion)
 
 class TestInterfaceImpl(
     override val testUnion: TestUnion1,
@@ -18,7 +19,7 @@ class TestInterfaceImpl(
 
 class Schema : GraphQLQueryResolver {
     fun query(): TestInterface = TestInterfaceImpl(TestUnion1("a"), "b")
-    fun dummy(): TestUnion = TestUnion1("a")
+    fun dummy(): DummyType = DummyType(TestUnion1("a"))
 }
 
 object Main {
@@ -34,6 +35,7 @@ object Main {
                 TestUnion2::class.java,
                 TestUnion::class.java,
                 TestInterface::class.java,
+                DummyType::class.java
             )
             .build()
             .makeExecutableSchema()

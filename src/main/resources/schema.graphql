@@ -1,6 +1,6 @@
 type Query {
     query: TestInterface
-    # dummy: TestUnion
+    # dummy: DummyType
 }
 
 interface TestInterface {
