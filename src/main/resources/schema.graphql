@@ -1,0 +1,27 @@
+type Query {
+    query: TestInterface
+    # dummy: TestUnion
+}
+
+interface TestInterface {
+    testUnion: TestUnion
+}
+
+type TestInterfaceImpl implements TestInterface {
+    testUnion: TestUnion1
+    c: String
+}
+
+type DummyType {
+    testUnion: TestUnion
+}
+
+type TestUnion1 {
+    a: String
+}
+
+type TestUnion2 {
+    b: String
+}
+
+union TestUnion = TestUnion1 | TestUnion2
